@@ -1,8 +1,9 @@
 class Produto {
-  constructor(nome, preco, estoque = 0) {
+  constructor(nome, preco, estoque = 0, sku) {
     this.nome = nome;
     this.preco = preco;
     this.estoque = estoque;
+    this.sku = sku;
   }
 }
 
@@ -32,6 +33,12 @@ class CarrinhoDeCompras {
 class Loja {
   constructor() {
     this.produtos = [];
+  }
+
+  buscaProdutoPorSku(sku) {
+    const produto = this.produtos.find((produto) => produto.sku === sku);
+    if (!produto) throw new Error('Produto não encontrado');
+    return produto;
   }
 
   adicionarProdutoAosProdutos(produto) {
