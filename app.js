@@ -42,14 +42,14 @@ class Loja {
   }
 
   adicionarProdutoAosProdutos(produto) {
+    if (this.produtos.includes(produto)) throw new Error('Produto já cadastrado');
     this.produtos.push(produto);
   }
 
   removerProdutoDosProdutos(produto) {
+    if (!this.produtos.includes(produto)) throw new Error('Produto não encontrado');
     this.produtos = this.produtos.filter((item) => item !== produto);
   }
-
-
 }
 
 module.exports = { Produto, CarrinhoDeCompras, Loja };

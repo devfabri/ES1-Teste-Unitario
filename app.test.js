@@ -21,19 +21,32 @@ describe('Testes para a classe Loja', () => {
     expect(loja).toHaveProperty('produtos');
   });
 
-  test('Testa adicionar um produto à loja', () => {
+  test('Testa adicionar um novo produto à loja', () => {
     const loja = new Loja();
     const produto = new Produto('Hidratante', 19.99, 5, 'SKNBK100');
     loja.adicionarProdutoAosProdutos(produto);
     expect(loja.produtos).toContain(produto);
   });
 
-  test('Testa remover um produto da loja', () => {
+  test('Testa adicionar um produto já existente à loja', () => {
+    const loja = new Loja();
+    const produto = new Produto('Hidratante', 19.99, 5, 'SKNBK100');
+    loja.adicionarProdutoAosProdutos(produto);
+    expect(() => loja.adicionarProdutoAosProdutos(produto)).toThrow('Produto já cadastrado');
+  });
+
+  test('Testa remover um produto existente da loja', () => {
     const loja = new Loja();
     const produto = new Produto('Hidratante', 19.99, 5, 'SKNBK100');
     loja.adicionarProdutoAosProdutos(produto);
     loja.removerProdutoDosProdutos(produto);
     expect(loja.produtos).not.toContain(produto);
+  });
+
+  test('Testa remover um produto inexistente da loja', () => {
+    const loja = new Loja();
+    const produto = new Produto('Hidratante', 19.99, 5, 'SKNBK100');
+    expect(() => loja.removerProdutoDosProdutos(produto)).toThrow('Produto não encontrado');
   });
 
   test('Testa buscar um produto existente por SKU', () => {
