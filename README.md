@@ -14,5 +14,6 @@ npm run test
 ```
 
 ## Resultado dos testes
-![image](https://github.com/devfabri/ES1-Teste-Unitario/assets/36730839/514e88ae-9c6b-4c7e-8ee2-c16aa70f6042)
+![image](https://github.com/devfabri/ES1-Teste-Unitario/assets/36730839/34e27c8b-16af-4d13-b3fd-7b17020dfd9e)
+
 
